@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{% block title %}Blog - Flask Web App{% endblock %}
+
+{% block content %}
+<div class="card">
+    <div style="display: flex; justify-content: space-between; align-items: center;">
+        <h1>Blog</h1>
+        <a href="{{ url_for('add_post') }}" class="btn btn-success">Thêm Bài Viết</a>
+    </div>
+    
+    {% for post in posts %}
+        <div class="card">
+            <h2><a href="{{ url_for('post_detail', post_id=post.id) }}" style="text-decoration: none; color: #2c3e50;">{{ post.title }}</a></h2>
+            <p>{{ post.content }}</p>
+            <hr>
+            <small>Bởi <strong>{{ post.author }}</strong> vào {{ post.date.strftime('%d/%m/%Y %H:%M') }}</small>
+        </div>
+    {% endfor %}
+</div>
+{% endblock %}

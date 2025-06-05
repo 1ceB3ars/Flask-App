@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+
+{% block title %}Trang Chủ - Flask Web App{% endblock %}
+
+{% block content %}
+<div class="card">
+    <h1>Chào Mừng Đến Với Flask Web App</h1>
+    <p>Đây là một ứng dụng web được xây dựng bằng Flask - một micro web framework của Python.</p>
+    
+    <h2>Tính Năng Chính:</h2>
+    <ul>
+        <li>🏠 Trang chủ với thông tin tổng quan</li>
+        <li>📝 Hệ thống blog với các bài viết</li>
+        <li>👤 Đăng ký người dùng</li>
+        <li>📧 Form liên hệ</li>
+        <li>🔌 API endpoint để lấy dữ liệu JSON</li>
+        <li>📱 Responsive design</li>
+    </ul>
+    
+    <div style="margin-top: 20px;">
+        <a href="{{ url_for('blog') }}" class="btn">Xem Blog</a>
+        <a href="{{ url_for('add_post') }}" class="btn btn-success">Thêm Bài Viết</a>
+    </div>
+</div>
+
+<div class="card">
+    <h2>Bài Viết Mới Nhất</h2>
+    {% for post in posts[-2:] %}
+        <div style="border-left: 4px solid #3498db; padding-left: 15px; margin: 15px 0;">
+            <h3><a href="{{ url_for('post_detail', post_id=post.id) }}" style="text-decoration: none; color: #2c3e50;">{{ post.title }}</a></h3>
+            <p style="color: #666;">{{ post.content[:100] }}...</p>
+            <small>Bởi {{ post.author }} - {{ post.date.strftime('%d/%m/%Y') }}</small>
+        </div>
+    {% endfor %}
+</div>
+{% endblock %}

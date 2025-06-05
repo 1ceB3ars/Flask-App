@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{% block title %}{{ post.title }} - Flask Web App{% endblock %}
+
+{% block content %}
+<div class="card">
+    <a href="{{ url_for('blog') }}" class="btn" style="margin-bottom: 20px;">← Quay lại Blog</a>
+    
+    <h1>{{ post.title }}</h1>
+    <div style="margin: 20px 0; padding: 15px; background: #f8f9fa; border-radius: 5px;">
+        <small>
+            <strong>Tác giả:</strong> {{ post.author }} | 
+            <strong>Ngày đăng:</strong> {{ post.date.strftime('%d/%m/%Y %H:%M') }}
+        </small>
+    </div>
+    
+    <div style="font-size: 18px; line-height: 1.8;">
+        {{ post.content }}
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+
+{% block title %}Không Tìm Thấy Trang - Flask Web App{% endblock %}
+
+{% block content %}
+<div class="card" style="text-align: center;">
+    <h1 style="font-size: 4rem; color: #e74c3c;">404</h1>
+    <h2>Không Tìm Thấy Trang</h2>
+    <p>Trang bạn đang tìm kiếm không tồn tại.</p>
+    <a href="{{ url_for('home') }}" class="btn">Về Trang Chủ</a>
+</div>
+{% endblock %}

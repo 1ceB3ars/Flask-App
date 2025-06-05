@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+
+{% block title %}Thêm Bài Viết - Flask Web App{% endblock %}
+
+{% block content %}
+<div class="card">
+    <h1>Thêm Bài Viết Mới</h1>
+    
+    <form method="POST">
+        <div class="form-group">
+            <label for="title">Tiêu đề:</label>
+            <input type="text" id="title" name="title" required>
+        </div>
+        
+        <div class="form-group">
+            <label for="author">Tác giả:</label>
+            <input type="text" id="author" name="author" required>
+        </div>
+        
+        <div class="form-group">
+            <label for="content">Nội dung:</label>
+            <textarea id="content" name="content" rows="10" required></textarea>
+        </div>
+        
+        <button type="submit" class="btn btn-success">Đăng Bài</button>
+        <a href="{{ url_for('blog') }}" class="btn">Hủy</a>
+    </form>
+</div>
+{% endblock %}
